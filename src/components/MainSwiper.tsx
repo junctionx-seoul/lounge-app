@@ -1,5 +1,6 @@
 import React from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import FastImage from 'react-native-fast-image';
 import Swiper from 'react-native-web-swiper';
 
 export default () => {
@@ -13,7 +14,7 @@ export default () => {
           dotsPos: 'bottom',
           prevPos: false,
           cellsStyle: {
-            top: {marginTop: 'auto'},
+            top: { marginTop: 'auto' },
           },
           DotComponent: ({
             isActive,
@@ -33,16 +34,32 @@ export default () => {
               />
             </TouchableOpacity>
           ),
-        }}>
-        <View style={[styles.slideContainer, styles.slide1]}>
-          <Text>Slide 1</Text>
-        </View>
-        <View style={[styles.slideContainer, styles.slide2]}>
-          <Text>Slide 2</Text>
-        </View>
-        <View style={[styles.slideContainer, styles.slide3]}>
-          <Text>Slide 3</Text>
-        </View>
+        }}
+      >
+        <FastImage
+          style={styles.image}
+          source={{
+            uri: 'https://cdn.lounge.so/landing-1.png',
+            priority: FastImage.priority.normal,
+          }}
+          resizeMode={FastImage.resizeMode.cover}
+        />
+        <FastImage
+          style={styles.image}
+          source={{
+            uri: 'https://cdn.lounge.so/landing-1.png',
+            priority: FastImage.priority.normal,
+          }}
+          resizeMode={FastImage.resizeMode.cover}
+        />
+        <FastImage
+          style={styles.image}
+          source={{
+            uri: 'https://cdn.lounge.so/landing-1.png',
+            priority: FastImage.priority.normal,
+          }}
+          resizeMode={FastImage.resizeMode.cover}
+        />
       </Swiper>
     </View>
   );
@@ -69,14 +86,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  slide1: {
-    backgroundColor: 'rgba(20,20,200,0.3)',
+  image: {
+    width: '100%',
+    height: '100%',
   },
-  slide2: {
-    backgroundColor: 'rgba(20,200,20,0.3)',
-  },
-  slide3: {
-    backgroundColor: 'rgba(200,20,20,0.3)',
-  },
-  sectionTitle: {},
 });
