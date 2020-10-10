@@ -1,12 +1,34 @@
 import React, { useEffect, useState } from 'react';
 import GradientText from '../../components/GradientText';
 import Logo from '../../assets/imgs/logo.svg';
-import { Text, View } from 'react-native';
+import { KeyboardAvoidingView, Linking, Text, View } from 'react-native';
 import GradientInput from '../../components/GradientInput';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { StackNavigationProp } from '@react-navigation/stack';
 import LinearGradient from 'react-native-linear-gradient';
+import Checkbox from '../../components/Checkbox';
+import { Link } from '@react-navigation/native';
+import Button from '../../components/Button';
 const GENDER_KEYS = ['여성', '남성'];
+const CHECKES: {
+  name: string;
+  link: string;
+  optional?: boolean;
+}[] = [
+  {
+    name: '이용 약관 동의',
+    link: 'http://github.com/',
+  },
+  {
+    name: '개인정보 취급방침 동의',
+    link: 'https://www.notion.so/',
+  },
+  {
+    name: '마케팅정보 수신동의',
+    link: 'http://facebook.com/',
+    optional: true,
+  },
+];
 const GenderSelector: React.FC<{ onPress(key: number): any }> = ({
   onPress,
 }) => {
@@ -90,8 +112,10 @@ const Create: React.FC<{ navigation: StackNavigationProp<{}> }> = ({
 }) => {
   const [gender, setGender] = useState<number>();
   const [birth, setBirth] = useState<string>();
+  const [nickname, setNickname] = useState<string>();
   return (
-    <View
+    <KeyboardAvoidingView
+      behavior="height"
       style={{
         flex: 1,
         padding: 20,
@@ -119,6 +143,7 @@ const Create: React.FC<{ navigation: StackNavigationProp<{}> }> = ({
         <GenderSelector onPress={setGender} />
         {gender && (
           <GradientInput
+            autofocus
             style={{
               marginTop: 20,
             }}
@@ -132,10 +157,47 @@ const Create: React.FC<{ navigation: StackNavigationProp<{}> }> = ({
               marginTop: 20,
             }}
             placeholder="닉네임을 입력하세요"
-            onNext={(e) => console.log(e)}
+            onNext={setNickname}
           />
         )}
+        {nickname && (
+          <View
+            style={{
+              marginTop: 10,
+            }}
+          >
+            {CHECKES.map((check) => (
+              <View
+                style={{
+                  flexDirection: 'row',
+                  marginTop: 10,
+                }}
+              >
+                <Checkbox>({check.optional ? '선택' : '필수'})</Checkbox>
+                <TouchableOpacity onPress={() => Linking.openURL(check.link)}>
+                  <Text
+                    style={{
+                      fontFamily: 'NanumSquareR',
+                      color: '#9E9EA0',
+                      marginLeft: 5,
+                      textDecorationLine: 'underline',
+                    }}
+                  >
+                    {check.name}
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            ))}
+          </View>
+        )}
       </View>
+      <Button
+        style={{
+          marginBottom: 20,
+        }}
+      >
+        완료
+      </Button>
       <TouchableOpacity onPress={() => navigation.goBack()}>
         <Text
           style={{
@@ -147,7 +209,7 @@ const Create: React.FC<{ navigation: StackNavigationProp<{}> }> = ({
           돌아가기
         </Text>
       </TouchableOpacity>
-    </View>
+    </KeyboardAvoidingView>
   );
 };
 export default Create;

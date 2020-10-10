@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { TextInput, View } from 'react-native';
+import { TextInput, View, Keyboard } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import LinearGradient from 'react-native-linear-gradient';
 import Arrow from '../assets/icons/rightArrow.svg';
@@ -7,7 +7,8 @@ const GradientInput: React.FC<{
   style: any;
   placeholder?: string;
   onNext(text: string): any;
-}> = ({ placeholder = '', style, onNext, ...props }) => {
+  autofocus?: boolean;
+}> = ({ placeholder = '', style, onNext, autofocus, ...props }) => {
   const [text, setText] = useState();
   return (
     <View {...props} style={[{ alignSelf: 'stretch' }, style]}>
@@ -35,10 +36,16 @@ const GradientInput: React.FC<{
             placeholderTextColor="#D1D1D1"
             placeholder={placeholder}
             value={text}
+            autoFocus={true}
             onChangeText={setText}
             onEndEditing={() => onNext(text)}
           />
-          <TouchableOpacity onPress={() => onNext(text)}>
+          <TouchableOpacity
+            onPress={() => {
+              onNext(text);
+              Keyboard.dismiss();
+            }}
+          >
             <Arrow />
           </TouchableOpacity>
         </View>
