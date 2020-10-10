@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import RatingIcon from '../assets/icons/rating.svg';
 
@@ -10,7 +10,7 @@ interface IMainSectionGrid {
   rating: number;
 }
 
-export default ({image, title, user, rating}: IMainSectionGrid) => {
+export default ({ image, title, user, rating }: IMainSectionGrid) => {
   return (
     <View style={styles.imageContainer}>
       <FastImage
@@ -23,7 +23,9 @@ export default ({image, title, user, rating}: IMainSectionGrid) => {
       />
       <Text style={styles.imageTitle}>{title}</Text>
       <View style={styles.imageInfo}>
-        <Text style={styles.imageUser} numberOfLines={1}>{user}</Text>
+        <Text style={styles.imageUser} numberOfLines={1}>
+          {user}
+        </Text>
         <View style={styles.imageInfo}>
           <RatingIcon />
           <Text style={styles.imageRating}>{rating}</Text>
