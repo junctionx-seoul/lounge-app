@@ -7,8 +7,11 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import Root from './src/screens/Root';
 import Hello from './src/screens/Hello';
+import Create from './src/screens/Hello/Create';
 
 const Stack = createStackNavigator();
+
+const HelloStack = createStackNavigator();
 
 export default function App() {
   return (
@@ -18,7 +21,15 @@ export default function App() {
           headerShown: false,
         }}
       >
-        <Stack.Screen name="Hello" component={Hello} />
+        <Stack.Screen
+          name="Hello"
+          component={() => (
+            <HelloStack.Navigator>
+              <HelloStack.Screen name="Index" component={Hello} />
+              <HelloStack.Screen name="Create" component={Create} />
+            </HelloStack.Navigator>
+          )}
+        />
         <Stack.Screen name="Home" component={Root} />
       </Stack.Navigator>
     </NavigationContainer>
