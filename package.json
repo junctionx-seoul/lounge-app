@@ -23,6 +23,7 @@
     "react-native-screens": "^2.11.0",
     "react-native-status-bar-height": "^2.5.0",
     "react-native-svg": "^12.1.0",
+    "react-native-text-gradient": "^0.1.7",
     "react-native-web-swiper": "^2.1.7"
   },
   "devDependencies": {
