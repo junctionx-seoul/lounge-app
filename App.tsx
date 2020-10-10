@@ -21,15 +21,18 @@ export default function App() {
           headerShown: false,
         }}
       >
-        <Stack.Screen
-          name="Hello"
-          component={() => (
-            <HelloStack.Navigator>
+        <Stack.Screen name="Hello">
+          {() => (
+            <HelloStack.Navigator
+              screenOptions={{
+                headerShown: false,
+              }}
+            >
               <HelloStack.Screen name="Index" component={Hello} />
               <HelloStack.Screen name="Create" component={Create} />
             </HelloStack.Navigator>
           )}
-        />
+        </Stack.Screen>
         <Stack.Screen name="Home" component={Root} />
       </Stack.Navigator>
     </NavigationContainer>

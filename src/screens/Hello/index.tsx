@@ -3,7 +3,7 @@ import React from 'react';
 import { SafeAreaView, StyleSheet, View } from 'react-native';
 // import LinearGradient from 'react-native-linear-gradient';
 
-import Logo from '../assets/imgs/register-logo.svg';
+import Logo from '../../assets/imgs/register-logo.svg';
 import Button from '../../components/Button';
 // import GradientText from '../../components/GradientText';
 
@@ -18,7 +18,11 @@ const Hello: React.FC<{ navigation: StackNavigationProp<{}> }> = ({
       <View style={styles.buttonWrap}>
         <Button
           style={{ marginBottom: 10 }}
-          onPress={() => navigation.navigate('')}
+          onPress={() =>
+            navigation.navigate({
+              name: 'Create',
+            })
+          }
         >
           새로 시작하기
         </Button>
