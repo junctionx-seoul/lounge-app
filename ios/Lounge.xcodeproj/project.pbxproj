@@ -18,6 +18,7 @@
 		2DCD954D1E0B4F2C00145EB5 /* LoungeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* LoungeTests.m */; };
 		7DE9C848FF4686C653CDFA97 /* libPods-Lounge-LoungeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8724B60595AB7D483693738F /* libPods-Lounge-LoungeTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		A9BE4CA22532384100ACF069 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = A9BE4CA12532384000ACF069 /* Fonts */; };
 		AF3DDC4EDB855312E568228E /* libPods-Lounge.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D7936FB84EE2AA23F0E0E41 /* libPods-Lounge.a */; };
 		EB826FA78E87DCC16DFCF09A /* libPods-Lounge-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FEA1C993ACD08E90F620B9FE /* libPods-Lounge-tvOSTests.a */; };
 /* End PBXBuildFile section */
@@ -63,6 +64,7 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Lounge/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8724B60595AB7D483693738F /* libPods-Lounge-LoungeTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Lounge-LoungeTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9310E82ED9B3EE1DC0C4EE94 /* Pods-Lounge-LoungeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lounge-LoungeTests.debug.xcconfig"; path = "Target Support Files/Pods-Lounge-LoungeTests/Pods-Lounge-LoungeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A9BE4CA12532384000ACF069 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Fonts; sourceTree = "<group>"; };
 		DB128015D578EEDCB7BA2718 /* Pods-Lounge-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lounge-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-Lounge-tvOS/Pods-Lounge-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
@@ -159,6 +161,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				A9BE4CA12532384000ACF069 /* Fonts */,
 				13B07FAE1A68108700A75B9A /* Lounge */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* LoungeTests */,
@@ -194,7 +197,6 @@
 				1572272A6E3CE22AA56FF7C2 /* Pods-Lounge-tvOSTests.debug.xcconfig */,
 				1437F22A068ECB5766F851F5 /* Pods-Lounge-tvOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -340,6 +342,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9BE4CA22532384100ACF069 /* Fonts in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
