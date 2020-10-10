@@ -23,7 +23,7 @@ export default ({image, title, user, rating}: IMainSectionGrid) => {
       />
       <Text style={styles.imageTitle}>{title}</Text>
       <View style={styles.imageInfo}>
-        <Text style={styles.imageUser}>{user}</Text>
+        <Text style={styles.imageUser} numberOfLines={1}>{user}</Text>
         <View style={styles.imageInfo}>
           <RatingIcon />
           <Text style={styles.imageRating}>{rating}</Text>
@@ -46,7 +46,8 @@ const styles = StyleSheet.create({
   imageTitle: {
     width: '75%',
     fontSize: 15,
-    fontWeight: '500',
+    fontFamily: 'NanumSquareB',
+    lineHeight: 20,
     marginBottom: 13,
   },
   imageInfo: {
@@ -55,11 +56,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   imageUser: {
+    width: '65%',
+    fontFamily: 'NanumSquareR',
     fontSize: 12,
     color: '#D1D1D1',
   },
   imageRating: {
-    fontWeight: '700',
+    fontFamily: 'NanumSquareEB',
     color: '#09DC67',
     fontSize: 13,
     marginLeft: 7,
