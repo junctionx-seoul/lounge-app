@@ -1,14 +1,11 @@
 import React from 'react';
 import { StyleSheet, View, Text, ScrollView } from 'react-native';
 
-import { getStatusBarHeight } from 'react-native-status-bar-height';
-
 import MainSectionGrid from '../components/MainSectionGrid';
 import MainServiceWrapper from '../components/MainServiceWrapper';
 import MainSwiper from '../components/MainSwiper';
 
 const App = () => {
-  console.log(getStatusBarHeight(true));
   return (
     <MainServiceWrapper>
       <MainSwiper />
