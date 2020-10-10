@@ -34,7 +34,7 @@ const GenderSelector: React.FC<{ onPress(key: number): any }> = ({
 }) => {
   const [selected, setSelected] = useState();
   useEffect(() => {
-    if (!(selected && onPress)) return;
+    if (!(selected !== undefined && onPress)) return;
     onPress(selected);
   }, [selected, onPress]);
   return (
@@ -113,6 +113,7 @@ const Create: React.FC<{ navigation: StackNavigationProp<{}> }> = ({
   const [gender, setGender] = useState<number>();
   const [birth, setBirth] = useState<string>();
   const [nickname, setNickname] = useState<string>();
+  const [checkes, setCheckes] = useState<boolean[]>([false, false, false]);
   return (
     <KeyboardAvoidingView
       behavior="height"
@@ -141,7 +142,7 @@ const Create: React.FC<{ navigation: StackNavigationProp<{}> }> = ({
           계정 생성하기
         </GradientText>
         <GenderSelector onPress={setGender} />
-        {gender && (
+        {gender !== undefined && (
           <GradientInput
             autofocus
             style={{
@@ -166,14 +167,26 @@ const Create: React.FC<{ navigation: StackNavigationProp<{}> }> = ({
               marginTop: 10,
             }}
           >
-            {CHECKES.map((check) => (
+            {CHECKES.map((check, checkIndex) => (
               <View
+                key={check.name}
                 style={{
                   flexDirection: 'row',
                   marginTop: 10,
                 }}
               >
-                <Checkbox>({check.optional ? '선택' : '필수'})</Checkbox>
+                <Checkbox
+                  onChange={(checked) => {
+                    console.log(checkes);
+                    setCheckes((_checkes) => [
+                      ..._checkes.slice(0, checkIndex),
+                      checked,
+                      ..._checkes.slice(checkIndex + 1),
+                    ]);
+                  }}
+                >
+                  ({check.optional ? '선택' : '필수'})
+                </Checkbox>
                 <TouchableOpacity onPress={() => Linking.openURL(check.link)}>
                   <Text
                     style={{
@@ -191,13 +204,15 @@ const Create: React.FC<{ navigation: StackNavigationProp<{}> }> = ({
           </View>
         )}
       </View>
-      <Button
-        style={{
-          marginBottom: 20,
-        }}
-      >
-        완료
-      </Button>
+      {checkes[0] && checkes[1] && (
+        <Button
+          style={{
+            marginBottom: 20,
+          }}
+        >
+          완료
+        </Button>
+      )}
       <TouchableOpacity onPress={() => navigation.goBack()}>
         <Text
           style={{

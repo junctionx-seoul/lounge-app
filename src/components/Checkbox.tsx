@@ -1,8 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, TouchableOpacity, Text } from 'react-native';
 import Check from '../assets/icons/check.svg';
-const Checkbox: React.FC = ({ children }) => {
+const Checkbox: React.FC<{ onChange(state: boolean): any }> = ({
+  children,
+  onChange,
+}) => {
   const [checked, setChecked] = useState(false);
+  useEffect(() => {
+    console.log(checked);
+    onChange && onChange(checked);
+  }, [checked]);
   return (
     <>
       <TouchableOpacity
