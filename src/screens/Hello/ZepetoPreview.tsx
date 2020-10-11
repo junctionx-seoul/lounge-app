@@ -65,7 +65,7 @@ const Create: React.FC<{ navigation: StackNavigationProp<{}> }> = ({
         >
           이 아바타가 맞나요?
         </GradientText>
-        {image && (
+        {!!image && (
           <FastImage
             style={{ width: '100%', height: '70%' }}
             source={{
