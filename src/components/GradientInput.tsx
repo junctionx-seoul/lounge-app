@@ -32,6 +32,7 @@ const GradientInput: React.FC<{
             style={{
               flex: 1,
               fontFamily: 'NanumSquareR',
+              paddingVertical: 15,
             }}
             placeholderTextColor="#D1D1D1"
             placeholder={placeholder}
