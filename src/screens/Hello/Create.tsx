@@ -32,7 +32,7 @@ const CHECKES: {
 const GenderSelector: React.FC<{ onPress(key: number): any }> = ({
   onPress,
 }) => {
-  const [selected, setSelected] = useState();
+  const [selected, setSelected] = useState<number>();
   useEffect(() => {
     if (!(selected !== undefined && onPress)) return;
     onPress(selected);
