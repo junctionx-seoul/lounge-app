@@ -11,8 +11,8 @@ import {
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import LinearGradient from 'react-native-linear-gradient';
 import Logo from '../../assets/imgs/logo.svg';
-import GradientText from '../../components/GradientText';
-import styles from './commonstyle';
+import GradientText from '../../../components/GradientText';
+import styles from '../commonstyle';
 const Button: React.FC<{
   greyOutline?: boolean;
   style?: StyleProp<ViewStyle>;

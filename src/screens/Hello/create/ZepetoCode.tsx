@@ -9,7 +9,14 @@ import styles from './commonstyle';
 
 const ZepetoCode: React.FC<{
   navigation: StackNavigationProp<{}>;
-}> = ({ navigation }) => {
+  route: {
+    params: {
+      gender: string;
+      birth: string;
+      nickname: string;
+    };
+  };
+}> = ({ navigation, route }) => {
   return (
     <KeyboardAvoidingView behavior="height" style={styles.container}>
       <View style={styles.centerize}>
@@ -22,7 +29,10 @@ const ZepetoCode: React.FC<{
           }}
           placeholder="ZEPETO CODE"
           onNext={(value) =>
-            navigation.navigate('ZepetoPreview', { code: value })
+            navigation.navigate('ZepetoPreview', {
+              code: value,
+              ...route.params,
+            })
           }
         />
         <Text

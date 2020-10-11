@@ -14,7 +14,7 @@ const login = async () => {
     password,
     username,
   });
-  AsyncStorage.setItem('@auth/accessToken', accessToken);
+  if (accessToken) AsyncStorage.setItem('@auth/accessToken', accessToken);
   return !accessToken;
 };
 
@@ -23,13 +23,15 @@ const Hello: React.FC<{ navigation: StackNavigationProp<{}> }> = ({
 }) => {
   const [first, setFirst] = useState<boolean | null>(null);
   useEffect(() => {
-    login();
+    login().then(setFirst);
   }, []);
   useEffect(() => {
-    navigation.navigate({
-      name: 'Home',
-    });
-  }, [first]);
+    console.log(first);
+    first === false &&
+      navigation.navigate({
+        name: 'Home',
+      });
+  }, [first, navigation]);
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.logo}>

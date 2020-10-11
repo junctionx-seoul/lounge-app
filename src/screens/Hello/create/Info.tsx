@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import GradientText from '../../components/GradientText';
 import Logo from '../../assets/imgs/logo.svg';
-import { KeyboardAvoidingView, Linking, Text, View } from 'react-native';
+import { Alert, KeyboardAvoidingView, Linking, Text, View } from 'react-native';
 import GradientInput from '../../components/GradientInput';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { StackNavigationProp } from '@react-navigation/stack';
@@ -114,6 +114,22 @@ const Create: React.FC<{ navigation: StackNavigationProp<{}> }> = ({
   const [birth, setBirth] = useState<string>();
   const [nickname, setNickname] = useState<string>();
   const [checkes, setCheckes] = useState<boolean[]>([false, false, false]);
+  const validate = () => {
+    if (gender === undefined) return Alert.alert('', '성별정보를 입력해주세요');
+    if (birth?.length !== 8)
+      return Alert.alert('', '8자리 생년월일을 입력해주세요');
+    if (!nickname) return Alert.alert('', '닉네임을 입력해주세요');
+    if (!(checkes[0] && checkes[1]))
+      return Alert.alert(
+        '',
+        '약관정보에 동의해주셔야 서비스를 이용할 수 있습니다.',
+      );
+    navigation.navigate('ZepetoCode', {
+      gender: gender.toString(),
+      birth,
+      nickname,
+    });
+  };
   return (
     <KeyboardAvoidingView behavior="height" style={styles.container}>
       <View style={styles.centerize}>
@@ -187,11 +203,7 @@ const Create: React.FC<{ navigation: StackNavigationProp<{}> }> = ({
           style={{
             marginBottom: 20,
           }}
-          onPress={() =>
-            navigation.navigate({
-              name: 'ZepetoCode',
-            })
-          }
+          onPress={() => validate()}
         >
           완료
         </Button>

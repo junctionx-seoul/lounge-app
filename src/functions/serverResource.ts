@@ -32,7 +32,31 @@ export interface PostLogin {
     message?: string;
   };
 }
+export interface PostRegister {
+  req: {
+    username: string;
+    password: string;
+    name: string;
+    birth: string;
+    gender: 'M' | 'F';
+    zepetoCode: string;
+  };
+  res: {
+    hashtag: string[];
+    _id: string;
+    username: string;
+    password: string;
+    name: string;
+    birth: string;
+    gender: 'M' | 'F';
+    zepetoCode: string;
+    createdAt: string;
+    updatedAt: string;
+    __v: number;
+  };
+}
 export interface Resource {
   GetExhibitionId: GetExhibitionId;
   PostLogin: PostLogin;
+  PostRegister: PostRegister;
 }

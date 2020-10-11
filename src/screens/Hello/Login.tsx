@@ -1,7 +1,6 @@
 import { StackNavigationProp } from '@react-navigation/stack';
 import React, { useState } from 'react';
 import AsyncStorage from '@react-native-community/async-storage';
-
 import { Alert, KeyboardAvoidingView, Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Logo from '../../assets/imgs/logo.svg';

@@ -8,6 +8,8 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import axios from 'axios';
 import FastImage from 'react-native-fast-image';
 import LinearGradient from 'react-native-linear-gradient';
+import { post } from '../../functions/postAPI';
+import { create } from 'react-test-renderer';
 const Button: React.FC<{
   greyOutline?: boolean;
   style?: StyleProp<ViewStyle>;
@@ -67,11 +69,35 @@ const Button: React.FC<{
   </View>
 );
 
-const Create: React.FC<{ navigation: StackNavigationProp<{}> }> = ({
-  navigation,
-  route,
-}) => {
+const Create: React.FC<{
+  navigation: StackNavigationProp<{}>;
+  route: {
+    params: {
+      gender: string;
+      birth: string;
+      nickname: string;
+      code: string;
+    };
+  };
+}> = ({ navigation, route }) => {
   const [image, setImage] = useState('');
+  const register = async () => {
+    // try {
+    //   if (
+    //     (
+    //       await post<'PostRegister'>('/auth/register', {
+    //         // ...
+    //       })
+    //     ).createdAt
+    //   ) {
+    //     navigation.navigate('Home');
+    //   } else {
+    //     throw new Error('네?');
+    //   }
+    // } catch (e) {
+    //   console.log(e.response.data);
+    // }
+  };
   useEffect(() => {
     const fetchImage = async () => {
       try {
@@ -140,7 +166,7 @@ const Create: React.FC<{ navigation: StackNavigationProp<{}> }> = ({
         </Button>
         <Button
           onPress={() => {
-            console.log('네?');
+            register();
           }}
           style={{ marginLeft: 10 }}
         >
