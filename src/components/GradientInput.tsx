@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { TextInput, View, Keyboard } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import LinearGradient from 'react-native-linear-gradient';
-import Arrow from '../assets/icons/rightArrow.svg';
+import Arrow from '../assets/icons/nextArrow.svg';
 const GradientInput: React.FC<{
   style: any;
   placeholder?: string;

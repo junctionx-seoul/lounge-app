@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34">
+  <g id="그룹_71" data-name="그룹 71" transform="translate(-315 -389)">
+    <circle id="타원_58" data-name="타원 58" cx="17" cy="17" r="17" transform="translate(315 389)" fill="#5bd14a"/>
+    <path id="right-arrow" d="M18.746,12.2a.732.732,0,0,0-1.009,1.06l5.612,5.322H8.732a.732.732,0,1,0,0,1.463H23.326L17.737,25.37a.731.731,0,1,0,1.009,1.059l6.383-6.079a1.462,1.462,0,0,0-.013-2.081Z" transform="translate(315.433 386.512)" fill="#fff"/>
+  </g>
+</svg>
