@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import GradientText from '../../components/GradientText';
 import Logo from '../../assets/imgs/logo.svg';
-import { KeyboardAvoidingView, Text, View } from 'react-native';
+import { KeyboardAvoidingView, SafeAreaView, Text, View } from 'react-native';
 import GradientInput from '../../components/GradientInput';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { StackNavigationProp } from '@react-navigation/stack';
@@ -41,11 +41,9 @@ const Create: React.FC<{ navigation: StackNavigationProp<{}> }> = ({
     fetchImage();
   }, []);
   return (
-    <KeyboardAvoidingView
-      behavior="height"
+    <SafeAreaView
       style={{
         flex: 1,
-        padding: 20,
         backgroundColor: 'white',
       }}
     >
@@ -78,26 +76,18 @@ const Create: React.FC<{ navigation: StackNavigationProp<{}> }> = ({
           />
         )}
       </View>
-      <Button
-        style={{
-          marginBottom: 20,
-        }}
-        onPress={() => navigation.navigate('ZepetoPreview', { code })}
-      >
-        완료
-      </Button>
-      <TouchableOpacity onPress={() => navigation.goBack()}>
-        <Text
+      <View style={{ padding: 20 }}>
+        <Button
           style={{
-            fontSize: 18,
-            fontFamily: 'NanumSquareEB',
-            color: '#9E9EA0',
+            marginBottom: 20,
           }}
+          onPress={() => navigation.navigate('ZepetoPreview', { code })}
         >
-          돌아가기
-        </Text>
-      </TouchableOpacity>
-    </KeyboardAvoidingView>
+          완료
+        </Button>
+      </View>
+    </SafeAreaView>
   );
 };
+
 export default Create;
