@@ -6,7 +6,7 @@ import { getStatusBarHeight } from 'react-native-status-bar-height';
 
 import Header from '../components/Header';
 
-export default function ({ children }: { children: React.ReactNode }) {
+export default function ({ children, exhibit }: { children: React.ReactNode }) {
   return (
     <>
       <LinearGradient
@@ -17,7 +17,7 @@ export default function ({ children }: { children: React.ReactNode }) {
         start={{ x: 0, y: 0.5 }}
         end={{ x: 1, y: 0.5 }}
       />
-      <Header />
+      <Header exhibit={exhibit} />
       <SafeAreaView>
         <ScrollView style={styles.container}>{children}</ScrollView>
       </SafeAreaView>

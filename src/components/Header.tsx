@@ -1,13 +1,14 @@
 import React from 'react';
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 
 import SidebarIcon from '../assets/icons/sidebar.svg';
 import SearchIcon from '../assets/icons/search.svg';
 import HeaderLogo from '../assets/icons/header-logo.svg';
+import HeaderTextLogo from '../assets/icons/header-text-logo.svg';
 
-export default () => {
+export default ({ exhibit }) => {
   const navigation = useNavigation();
   return (
     <LinearGradient
@@ -35,7 +36,7 @@ export default () => {
       >
         <SidebarIcon />
       </TouchableOpacity>
-      <HeaderLogo />
+      {exhibit ? <HeaderTextLogo /> : <HeaderLogo />}
       <SearchIcon />
     </LinearGradient>
   );
