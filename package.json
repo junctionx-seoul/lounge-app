@@ -15,10 +15,13 @@
     "@react-navigation/drawer": "^5.9.3",
     "@react-navigation/native": "^5.7.6",
     "@react-navigation/stack": "^5.9.3",
+    "@types/react-native-canvas": "^0.1.5",
     "axios": "^0.20.0",
     "react": "16.13.1",
     "react-native": "0.63.3",
+    "react-native-canvas": "^0.1.37",
     "react-native-fast-image": "^8.3.2",
+    "react-native-fs": "^2.16.6",
     "react-native-gesture-handler": "^1.8.0",
     "react-native-linear-gradient": "^2.5.6",
     "react-native-reanimated": "^1.13.1",
@@ -27,7 +30,9 @@
     "react-native-status-bar-height": "^2.5.0",
     "react-native-svg": "^12.1.0",
     "react-native-text-gradient": "^0.1.7",
-    "react-native-web-swiper": "^2.1.7"
+    "react-native-view-shot": "^3.1.2",
+    "react-native-web-swiper": "^2.1.7",
+    "react-native-webview": "^10.9.2"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",

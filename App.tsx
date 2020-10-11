@@ -15,6 +15,7 @@ import ZepetoPreview from './src/screens/Hello/create/ZepetoPreview';
 import Sidebar from './src/screens/Sidebar';
 import Exhibition from './src/screens/Exhibition';
 import Username from './src/screens/Hello/Login';
+import RendererTest from './src/screens/RendererTest';
 
 const Drawer = createDrawerNavigator();
 
@@ -30,6 +31,7 @@ export default function App() {
         }}
         drawerType="slide"
       >
+        <Drawer.Screen name="DRAW_TEST" component={RendererTest} />
         <Drawer.Screen name="Hello">
           {() => (
             <HelloStack.Navigator
