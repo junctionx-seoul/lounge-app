@@ -1,13 +1,80 @@
 import React, { useEffect, useState } from 'react';
 import GradientText from '../../components/GradientText';
 import Logo from '../../assets/imgs/logo.svg';
-import { KeyboardAvoidingView, SafeAreaView, Text, View } from 'react-native';
-import GradientInput from '../../components/GradientInput';
+import {
+  KeyboardAvoidingView,
+  SafeAreaView,
+  StyleProp,
+  StyleSheet,
+  Text,
+  View,
+  ViewStyle,
+} from 'react-native';
+import styles from './commonstyle';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { StackNavigationProp } from '@react-navigation/stack';
-import Button from '../../components/Button';
+// import Button from '../../components/Button';
 import axios from 'axios';
 import FastImage from 'react-native-fast-image';
+import LinearGradient from 'react-native-linear-gradient';
+const Button: React.FC<{
+  greyOutline?: boolean;
+  style?: StyleProp<ViewStyle>;
+  onPress(): any;
+}> = ({ children, greyOutline, style, onPress }) => (
+  <View
+    style={[
+      {
+        flex: 1,
+      },
+      style,
+    ]}
+  >
+    <TouchableOpacity
+      style={{
+        height: 56,
+      }}
+      onPress={onPress}
+    >
+      <LinearGradient
+        colors={greyOutline ? ['white', 'white'] : ['#5BCDFF', '#5BD245']}
+        start={{ x: 0, y: 0.5 }}
+        end={{ x: 1, y: 0.5 }}
+        style={[{ borderRadius: 56, height: 56 }]}
+      >
+        <View
+          style={[
+            {
+              borderRadius: 50,
+              flex: 1,
+              padding: 18,
+            },
+            greyOutline && {
+              borderWidth: 1,
+              borderStyle: 'solid',
+              borderColor: '#9E9EA0',
+            },
+          ]}
+        >
+          <Text
+            style={[
+              {
+                fontFamily: 'NanumSquareEB',
+                textAlign: 'center',
+                color: 'white',
+              },
+              greyOutline && {
+                color: '#9E9EA0',
+              },
+            ]}
+          >
+            {children}
+          </Text>
+        </View>
+      </LinearGradient>
+    </TouchableOpacity>
+  </View>
+);
 
 const Create: React.FC<{ navigation: StackNavigationProp<{}> }> = ({
   navigation,
@@ -41,12 +108,7 @@ const Create: React.FC<{ navigation: StackNavigationProp<{}> }> = ({
     fetchImage();
   }, []);
   return (
-    <SafeAreaView
-      style={{
-        flex: 1,
-        backgroundColor: 'white',
-      }}
-    >
+    <SafeAreaView style={styles.container}>
       <View
         style={{
           alignItems: 'center',
@@ -80,10 +142,9 @@ const Create: React.FC<{ navigation: StackNavigationProp<{}> }> = ({
         style={{
           flexDirection: 'row',
           width: '100%',
-          backgroundColor: 'red',
         }}
       >
-        <Button type="outline" onPress={() => navigation.goBack()}>
+        <Button greyOutline onPress={() => navigation.goBack()}>
           다시 입력
         </Button>
         <Button
