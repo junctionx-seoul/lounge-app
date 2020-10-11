@@ -8,8 +8,7 @@ import FastImage from 'react-native-fast-image';
 import LinearGradient from 'react-native-linear-gradient';
 
 import Close from '../assets/icons/close.svg';
-import Setting from '../assets/icons/setting.svg';
-import Arrow from '../assets/icons/rightArrow.svg';
+import Setting from '../assets/icons/setting-white.svg';
 import CameraIcon from '../assets/icons/camera.svg';
 import VideoIcon from '../assets/icons/video.svg';
 import LayerIcon from '../assets/icons/layer.svg';
@@ -149,7 +148,6 @@ const Sidebar: React.FC<DrawerContentComponentProps<DrawerContentOptions>> = ({
           >
             <Close />
           </TouchableOpacity>
-          <Setting style={{ marginLeft: 15 }} />
           <View
             style={{
               flexDirection: 'row',
@@ -214,7 +212,7 @@ const Sidebar: React.FC<DrawerContentComponentProps<DrawerContentOptions>> = ({
                 flex: 1,
               }}
             >
-              <Arrow />
+              <Setting />
             </View>
           </LinearGradient>
         </TouchableOpacity>
