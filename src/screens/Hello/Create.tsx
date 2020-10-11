@@ -209,6 +209,7 @@ const Create: React.FC<{ navigation: StackNavigationProp<{}> }> = ({
           style={{
             marginBottom: 20,
           }}
+          onPress={() => navigation.navigate({ name: 'ZepetoCode' })}
         >
           완료
         </Button>
