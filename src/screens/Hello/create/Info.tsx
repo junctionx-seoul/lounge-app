@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import GradientText from '../../components/GradientText';
-import Logo from '../../assets/imgs/logo.svg';
+import GradientText from '../../../components/GradientText';
+import Logo from '../../../assets/imgs/logo.svg';
 import { Alert, KeyboardAvoidingView, Linking, Text, View } from 'react-native';
-import GradientInput from '../../components/GradientInput';
+import GradientInput from '../../../components/GradientInput';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { StackNavigationProp } from '@react-navigation/stack';
 import LinearGradient from 'react-native-linear-gradient';
-import Checkbox from '../../components/Checkbox';
-import styles from './commonstyle';
-import Button from '../../components/Button';
+import Checkbox from '../../../components/Checkbox';
+import styles from '../commonstyle';
+import Button from '../../../components/Button';
 const GENDER_KEYS = ['여성', '남성'];
 const CHECKES: {
   name: string;

@@ -2,10 +2,10 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import React, { useState } from 'react';
 import { KeyboardAvoidingView, Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import Logo from '../../assets/imgs/logo.svg';
-import GradientInput from '../../components/GradientInput';
-import GradientText from '../../components/GradientText';
-import styles from './commonstyle';
+import Logo from '../../../assets/imgs/logo.svg';
+import GradientInput from '../../../components/GradientInput';
+import GradientText from '../../../components/GradientText';
+import styles from '../commonstyle';
 
 const ZepetoCode: React.FC<{
   navigation: StackNavigationProp<{}>;

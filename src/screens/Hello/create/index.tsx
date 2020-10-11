@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import GradientInput from '../../../components/GradientInput';
 import GradientText from '../../../components/GradientText';
-import Logo from '../../assets/imgs/logo.svg';
+import Logo from '../../../assets/imgs/logo.svg';
 import styles from '../commonstyle';
 const Username: React.FC = () => {
   const [username, setUsername] = useState<string>();

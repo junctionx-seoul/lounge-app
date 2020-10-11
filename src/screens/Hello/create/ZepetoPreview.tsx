@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import GradientText from '../../components/GradientText';
-import Logo from '../../assets/imgs/logo.svg';
+import GradientText from '../../../components/GradientText';
+import Logo from '../../../assets/imgs/logo.svg';
 import { SafeAreaView, StyleProp, Text, View, ViewStyle } from 'react-native';
-import styles from './commonstyle';
+import styles from '../commonstyle';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { StackNavigationProp } from '@react-navigation/stack';
 import axios from 'axios';
 import FastImage from 'react-native-fast-image';
 import LinearGradient from 'react-native-linear-gradient';
-import { post } from '../../functions/postAPI';
-import { create } from 'react-test-renderer';
 const Button: React.FC<{
   greyOutline?: boolean;
   style?: StyleProp<ViewStyle>;

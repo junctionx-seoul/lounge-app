@@ -9,7 +9,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import Root from './src/screens/Root';
 import Hello from './src/screens/Hello';
 import Create from './src/screens/Hello/create/';
-import Info from './src/screens/Hello/create/info';
+import Info from './src/screens/Hello/create/Info';
 import ZepetoCode from './src/screens/Hello/create/ZepetoCode';
 import ZepetoPreview from './src/screens/Hello/create/ZepetoPreview';
 import Sidebar from './src/screens/Sidebar';
@@ -40,7 +40,7 @@ export default function App() {
               <HelloStack.Screen name="Index" component={Hello} />
               <HelloStack.Screen name="Create" component={Create} />
               <HelloStack.Screen name="Username" component={Username} />
-              <HelloStack.Screen name="Username" component={Info} />
+              <HelloStack.Screen name="Info" component={Info} />
               <HelloStack.Screen name="ZepetoCode" component={ZepetoCode} />
               <HelloStack.Screen
                 name="ZepetoPreview"
