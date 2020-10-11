@@ -28,7 +28,6 @@ export default function App() {
         }}
         drawerType="slide"
       >
-        <Drawer.Screen name="TESTSLIDE" component={Sidebar} />
         <Drawer.Screen name="Home" component={Root} />
         <Drawer.Screen name="Hello">
           {() => (

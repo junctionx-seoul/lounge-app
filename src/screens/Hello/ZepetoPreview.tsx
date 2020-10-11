@@ -1,19 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import GradientText from '../../components/GradientText';
 import Logo from '../../assets/imgs/logo.svg';
-import {
-  KeyboardAvoidingView,
-  SafeAreaView,
-  StyleProp,
-  StyleSheet,
-  Text,
-  View,
-  ViewStyle,
-} from 'react-native';
+import { SafeAreaView, StyleProp, Text, View, ViewStyle } from 'react-native';
 import styles from './commonstyle';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { StackNavigationProp } from '@react-navigation/stack';
-// import Button from '../../components/Button';
 import axios from 'axios';
 import FastImage from 'react-native-fast-image';
 import LinearGradient from 'react-native-linear-gradient';
