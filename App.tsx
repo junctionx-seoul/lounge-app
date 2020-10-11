@@ -13,6 +13,8 @@ import ZepetoCode from './src/screens/Hello/ZepetoCode';
 import ZepetoPreview from './src/screens/Hello/ZepetoPreview';
 import CheckAvatar from './src/screens/Hello/CheckAvatar';
 import Sidebar from './src/screens/Sidebar';
+import Exhibition from './src/screens/Exhibition';
+import Username from './src/screens/Hello/Username';
 
 const Drawer = createDrawerNavigator();
 
@@ -28,7 +30,6 @@ export default function App() {
         }}
         drawerType="slide"
       >
-        <Drawer.Screen name="Home" component={Root} />
         <Drawer.Screen name="Hello">
           {() => (
             <HelloStack.Navigator
@@ -37,6 +38,7 @@ export default function App() {
               }}
             >
               <HelloStack.Screen name="Index" component={Hello} />
+              <HelloStack.Screen name="Username" component={Username} />
               <HelloStack.Screen name="Create" component={Create} />
               <HelloStack.Screen name="ZepetoCode" component={ZepetoCode} />
               <HelloStack.Screen
@@ -46,6 +48,14 @@ export default function App() {
             </HelloStack.Navigator>
           )}
         </Drawer.Screen>
+        <Drawer.Screen
+          name="Exhibition"
+          component={Exhibition}
+          initialParams={{
+            id: '5f663623d305dad100cb1830',
+          }}
+        />
+        <Drawer.Screen name="Home" component={Root} />
       </Drawer.Navigator>
     </NavigationContainer>
   );

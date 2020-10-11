@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text, ScrollView } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import MainSectionGrid from '../components/MainSectionGrid';
 import MainServiceWrapper from '../components/MainServiceWrapper';
@@ -12,12 +13,14 @@ const App = () => {
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>인기있는 전시회</Text>
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-          <MainSectionGrid
-            title="반 고흐 베스트 명화 리와인드 II"
-            user="빈센트 반 고흐"
-            rating={4.5}
-            image="https://scontent-vie1-1.cdninstagram.com/v/t51.2885-19/118613515_692707951590108_1226559573194727055_n.jpg?_nc_ht=scontent-vie1-1.cdninstagram.com&_nc_ohc=hSXRTXO15bUAX_G0-w9&oh=dcf587040e70f4eccceed11b4b151b55&oe=5FAAE5E0"
-          />
+          <TouchableOpacity>
+            <MainSectionGrid
+              title="반 고흐 베스트 명화 리와인드 II"
+              user="빈센트 반 고흐"
+              rating={4.5}
+              image="https://scontent-vie1-1.cdninstagram.com/v/t51.2885-19/118613515_692707951590108_1226559573194727055_n.jpg?_nc_ht=scontent-vie1-1.cdninstagram.com&_nc_ohc=hSXRTXO15bUAX_G0-w9&oh=dcf587040e70f4eccceed11b4b151b55&oe=5FAAE5E0"
+            />
+          </TouchableOpacity>
           <MainSectionGrid
             title="반 고흐 베스트 명화 리와인드 II"
             user="빈센트 반 고흐"
