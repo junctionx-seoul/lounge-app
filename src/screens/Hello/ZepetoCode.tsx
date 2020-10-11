@@ -21,10 +21,8 @@ const ZepetoCode: React.FC<{
             marginTop: 20,
           }}
           placeholder="ZEPETO CODE"
-          onNext={() =>
-            navigation.navigate({
-              name: 'CheckAvatar',
-            })
+          onNext={(value) =>
+            navigation.navigate('ZepetoPreview', { code: value })
           }
         />
         <Text
