@@ -8,6 +8,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Root from './src/screens/Root';
 import Hello from './src/screens/Hello';
 import Create from './src/screens/Hello/Create';
+import ZepetoCode from './src/screens/Hello/ZepetoCode';
+import CheckAvatar from './src/screens/Hello/CheckAvatar';
 
 const Stack = createStackNavigator();
 
@@ -29,6 +31,8 @@ export default function App() {
               }}
             >
               <HelloStack.Screen name="Index" component={Hello} />
+              <HelloStack.Screen name="CheckAvatar" component={CheckAvatar} />
+              <HelloStack.Screen name="ZepetoCode" component={ZepetoCode} />
               <HelloStack.Screen name="Create" component={Create} />
             </HelloStack.Navigator>
           )}

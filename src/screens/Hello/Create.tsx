@@ -7,7 +7,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { StackNavigationProp } from '@react-navigation/stack';
 import LinearGradient from 'react-native-linear-gradient';
 import Checkbox from '../../components/Checkbox';
-import { Link } from '@react-navigation/native';
+import styles from './commonstyle';
 import Button from '../../components/Button';
 const GENDER_KEYS = ['여성', '남성'];
 const CHECKES: {
@@ -115,32 +115,10 @@ const Create: React.FC<{ navigation: StackNavigationProp<{}> }> = ({
   const [nickname, setNickname] = useState<string>();
   const [checkes, setCheckes] = useState<boolean[]>([false, false, false]);
   return (
-    <KeyboardAvoidingView
-      behavior="height"
-      style={{
-        flex: 1,
-        padding: 20,
-        backgroundColor: 'white',
-      }}
-    >
-      <View
-        style={{
-          alignItems: 'center',
-          justifyContent: 'center',
-          flex: 1,
-        }}
-      >
+    <KeyboardAvoidingView behavior="height" style={styles.container}>
+      <View style={styles.centerize}>
         <Logo />
-        <GradientText
-          style={{
-            fontSize: 28,
-            fontFamily: 'NanumSquareEB',
-            textAlign: 'center',
-            marginTop: 20,
-          }}
-        >
-          계정 생성하기
-        </GradientText>
+        <GradientText style={styles.title}>계정 생성하기</GradientText>
         <GenderSelector onPress={setGender} />
         {gender !== undefined && (
           <GradientInput
@@ -209,6 +187,11 @@ const Create: React.FC<{ navigation: StackNavigationProp<{}> }> = ({
           style={{
             marginBottom: 20,
           }}
+          onPress={() =>
+            navigation.navigate({
+              name: 'ZepetoCode',
+            })
+          }
         >
           완료
         </Button>
