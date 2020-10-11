@@ -1,33 +1,64 @@
+import AsyncStorage from '@react-native-community/async-storage';
 import { StackNavigationProp } from '@react-navigation/stack';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { SafeAreaView, StyleSheet, View } from 'react-native';
-// import LinearGradient from 'react-native-linear-gradient';
-
 import Logo from '../../assets/imgs/register-logo.svg';
 import Button from '../../components/Button';
-// import GradientText from '../../components/GradientText';
+import { post } from '../../functions/postAPI';
+
+const login = async () => {
+  const username = await AsyncStorage.getItem('@auth/username');
+  const password = await AsyncStorage.getItem('@auth/password');
+  if (!username || !password) return true;
+  const { accessToken } = await post<'PostLogin'>('/auth/login', {
+    password,
+    username,
+  });
+  AsyncStorage.setItem('@auth/accessToken', accessToken);
+  return !accessToken;
+};
 
 const Hello: React.FC<{ navigation: StackNavigationProp<{}> }> = ({
   navigation,
 }) => {
+  const [first, setFirst] = useState<boolean | null>(null);
+  useEffect(() => {
+    login();
+  }, []);
+  useEffect(() => {
+    navigation.navigate({
+      name: 'Home',
+    });
+  }, [first]);
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.logo}>
         <Logo />
       </View>
-      <View style={styles.buttonWrap}>
-        <Button
-          style={{ marginBottom: 10 }}
-          onPress={() =>
-            navigation.navigate({
-              name: 'Create',
-            })
-          }
-        >
-          새로 시작하기
-        </Button>
-        <Button type="outline">이미 계정이 있습니다</Button>
-      </View>
+      {first && (
+        <View style={styles.buttonWrap}>
+          <Button
+            style={{ marginBottom: 10 }}
+            onPress={() =>
+              navigation.navigate({
+                name: 'Create',
+              })
+            }
+          >
+            새로 시작하기
+          </Button>
+          <Button
+            type="outline"
+            onPress={() =>
+              navigation.navigate({
+                name: 'Username',
+              })
+            }
+          >
+            이미 계정이 있습니다
+          </Button>
+        </View>
+      )}
     </SafeAreaView>
   );
 };
