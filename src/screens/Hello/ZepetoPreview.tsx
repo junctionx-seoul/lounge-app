@@ -76,14 +76,23 @@ const Create: React.FC<{ navigation: StackNavigationProp<{}> }> = ({
           />
         )}
       </View>
-      <View style={{ padding: 20 }}>
+      <View
+        style={{
+          flexDirection: 'row',
+          width: '100%',
+          backgroundColor: 'red',
+        }}
+      >
+        <Button type="outline" onPress={() => navigation.goBack()}>
+          다시 입력
+        </Button>
         <Button
-          style={{
-            marginBottom: 20,
+          onPress={() => {
+            console.log('네?');
           }}
-          onPress={() => navigation.navigate('ZepetoPreview', { code })}
+          style={{ marginLeft: 10 }}
         >
-          완료
+          네, 맞습니다!
         </Button>
       </View>
     </SafeAreaView>
