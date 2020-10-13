@@ -6,14 +6,17 @@ import MainSectionGrid from '../components/MainSectionGrid';
 import MainServiceWrapper from '../components/MainServiceWrapper';
 import MainSwiper from '../components/MainSwiper';
 
-const App = () => {
-  return (
+const App: React.FC<{
+  navigation: StackNavigationProp<{}>;
+}> = ({ navigation }) => {  return (
     <MainServiceWrapper>
       <MainSwiper />
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>인기있는 전시회</Text>
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-          <TouchableOpacity>
+          <TouchableOpacity
+           onPress={() => navigation.navigate('Exhibit')}
+          >
             <MainSectionGrid
               title="반 고흐 베스트 명화 리와인드 II"
               user="빈센트 반 고흐"

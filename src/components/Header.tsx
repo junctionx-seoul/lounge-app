@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { TouchableOpacity, StyleSheet } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 
@@ -13,15 +13,7 @@ export default ({ exhibit }) => {
   return (
     <LinearGradient
       colors={['#5BCDFF', '#5BD245']}
-      style={{
-        display: 'flex',
-        flexDirection: 'row',
-        height: 46,
-        backgroundColor: 'red',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        paddingHorizontal: 15,
-      }}
+      style={styles.wrap}
       start={{ x: 0, y: 0.5 }}
       end={{ x: 1, y: 0.5 }}
     >
@@ -36,8 +28,26 @@ export default ({ exhibit }) => {
       >
         <SidebarIcon />
       </TouchableOpacity>
-      {exhibit ? <HeaderTextLogo /> : <HeaderLogo />}
+      {exhibit ? (
+        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+          <HeaderTextLogo />
+        </TouchableOpacity>
+      ) : (
+        <HeaderLogo />
+      )}
       <SearchIcon />
     </LinearGradient>
   );
 };
+
+const styles = StyleSheet.create({
+  wrap: {
+    display: 'flex',
+    flexDirection: 'row',
+    height: 46,
+    backgroundColor: 'red',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: 15,
+  },
+});

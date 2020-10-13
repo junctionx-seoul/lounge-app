@@ -17,6 +17,7 @@ import Exhibition from './src/screens/Exhibition';
 import Username from './src/screens/Hello/Login';
 import RendererTest from './src/screens/RendererTest';
 
+import Exhibit from './src/screens/Exhibit';
 const Drawer = createDrawerNavigator();
 
 const HelloStack = createStackNavigator();
@@ -31,7 +32,7 @@ export default function App() {
         }}
         drawerType="slide"
       >
-        <Drawer.Screen name="DRAW_TEST" component={RendererTest} />
+        {/*<Drawer.Screen name="DRAW_TEST" component={RendererTest} />*/}
         <Drawer.Screen name="Hello">
           {() => (
             <HelloStack.Navigator
@@ -57,6 +58,10 @@ export default function App() {
           initialParams={{
             id: '5f663623d305dad100cb1830',
           }}
+        />
+        <Drawer.Screen
+          name="Exhibit"
+          component={Exhibit}
         />
         <Drawer.Screen name="Home" component={Root} />
       </Drawer.Navigator>

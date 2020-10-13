@@ -8,6 +8,10 @@ target 'Lounge' do
 
   use_react_native!(:path => config["reactNativePath"])
 
+  pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
+
+  pod 'react-native-view-shot', :path => '../node_modules/react-native-view-shot'
+
   target 'LoungeTests' do
     inherit! :complete
     # Pods for testing
